@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLARIS | Solar System Explorer</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #050914;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 25px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #25314a;
+}
+
+.logo {
+  color: #70cfff;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.hero {
+  text-align: center;
+  padding: 75px 20px 45px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 8vw, 65px);
+  color: #75caff;
+  text-shadow: 0 0 25px #168bff;
+}
+
+.hero p {
+  color: #aaa;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #75caff;
+  text-align: center;
+  margin: 35px 0 25px;
+}
+
+.planets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 15px;
+}
+
+.planet {
+  background: #101a2b;
+  border: 1px solid #253b59;
+  border-radius: 14px;
+  padding: 22px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.planet:hover {
+  transform: translateY(-6px);
+  border-color: #70cfff;
+  box-shadow: 0 0 20px #168bff55;
+}
+
+.planet span {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.planet h3 {
+  font-size: 15px;
+}
+
+.details {
+  background: linear-gradient(135deg, #101a2b, #17152d);
+  border: 1px solid #354c70;
+  border-radius: 18px;
+  padding: 30px;
+  margin-top: 35px;
+  min-height: 180px;
+}
+
+.details h2 {
+  margin-top: 0;
+}
+
+.details p {
+  color: #b6c3d8;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.fact {
+  text-align: center;
+  color: #6fcaff;
+  margin-top: 20px;
+}
+
+.info {
+  text-align: center;
+  padding: 30px 10px;
+  color: #aab7cc;
+  line-height: 1.9;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #64738b;
+  border-top: 1px solid #25314a;
+  margin-top: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">SOLARIS.</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#planets">Planets</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>OUR SOLAR SYSTEM</h1>
+  <p>
+    Eight planets. One star. Countless mysteries.<br>
+    Discover the wonders of our cosmic neighborhood.
+  </p>
+</section>
+
+<div class="container">
+
+  <h2 id="planets">✦ EXPLORE THE PLANETS ✦</h2>
+
+  <div class="planets">
+
+    <div class="planet" onclick="showPlanet('Mercury')">
+      <span>🌑</span><h3>Mercury</h3>
+    </div>
+
+    <div class="planet" onclick="showPlanet('Venus')">
+      <span>🟠</span><h3>Venus</h3>
+    </div>
+
+    <div class="planet" onclick="showPlanet('Earth')">
+      <span>🌍</span><h3>Earth</h3>
+    </div>
+
+    <div class="planet" onclick="showPlanet('Mars')">
+      <span>🔴</span><h3>Mars</h3>
+    </div>
+
+    <div class="planet" onclick="showPlanet('Jupiter')">
+      <span>🪐</span><h3>Jupiter</h3>
+    </div>
+
+    <div class="planet" onclick="showPlanet('Saturn')">
+      <span>🪐</span><h3>Saturn</h3>
+    </div>
+
+    <div class="planet" onclick="showPlanet('Uranus')">
+      <span>🔵</span><h3>Uranus</h3>
+    </div>
+
+    <div class="planet" onclick="showPlanet('Neptune')">
+      <span>🔵</span><h3>Neptune</h3>
+    </div>
+
+  </div>
+
+  <div class="details" id="details">
+    <h2>Welcome, Explorer! 🚀</h2>
+    <p>
+      Select any planet above to discover its secrets,
+      atmosphere, temperature and fascinating facts.
+    </p>
+  </div>
+
+  <h2 id="about">☀️ ABOUT OUR SOLAR SYSTEM</h2>
+
+  <div class="info">
+    <p>
+      Our Solar System formed approximately 4.6 billion
+      years ago. It consists of the Sun, eight planets,
+      dwarf planets, moons, asteroids and comets.
+    </p>
+    <p>
+      The Sun is at the center of our Solar System.
+      Its gravity keeps the planets in orbit around it.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  SOLARIS © 2026 | Explore Beyond Earth 🌌
+</footer>
+
+<script>
+
+const planets = {
+
+Mercury: {
+description: "Mercury is the smallest planet and the closest planet to the Sun. It has a heavily cratered surface and almost no atmosphere.",
+fact: "Average distance from Sun: 57.9 million km"
+},
+
+Venus: {
+description: "Venus is the hottest planet in our Solar System. Its thick atmosphere traps heat, creating an extreme greenhouse effect.",
+fact: "Average surface temperature: 465°C"
+},
+
+Earth: {
+description: "Earth is our home planet. It has liquid water on its surface, a protective atmosphere and the only confirmed life in the universe.",
+fact: "About 71% of its surface is covered by water."
+},
+
+Mars: {
+description: "Mars is known as the Red Planet because of iron-rich dust on its surface. Scientists are studying it for signs of ancient life.",
+fact: "Mars has two moons: Phobos and Deimos."
+},
+
+Jupiter: {
+description: "Jupiter is the largest planet in our Solar System. It is a gas giant famous for its enormous Great Red Spot storm.",
+fact: "Jupiter has a diameter of about 139,820 km."
+},
+
+Saturn: {
+description: "Saturn is famous for its spectacular rings, made mostly of ice and rocky particles. It is also a gas giant.",
+fact: "Saturn has an average density lower than water."
+},
+
+Uranus: {
+description: "Uranus is an ice giant with a blue-green color caused by methane in its atmosphere. It rotates on its side.",
+fact: "Its axial tilt is approximately 98 degrees."
+},
+
+Neptune: {
+description: "Neptune is the farthest recognized planet from the Sun. It is an ice giant with powerful winds and a deep blue appearance.",
+fact: "One year on Neptune lasts about 165 Earth years."
+}
+
+};
+
+function showPlanet(name) {
+
+const planet = planets[name];
+
+document.getElementById("details").innerHTML = `
+<h2>🌌 ${name}</h2>
+<p>${planet.description}</p>
+<div class="fact">✨ ${planet.fact}</div>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
